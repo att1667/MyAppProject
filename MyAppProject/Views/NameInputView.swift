@@ -13,8 +13,32 @@
 import SwiftUI
 
 struct NameInputView: View {
+    @State var name: String = ""
+    
     var body: some View {
-        Text("Name input view")
+        VStack {
+            Spacer()
+            HStack {
+                Text("프로젝트 어플 이름")
+                    .font(.title)
+                    .fontWeight(.bold)
+            }.padding(.bottom, 80)
+            HStack {
+                Spacer()
+                TextField("이름을 입력해주세요", text: $name)
+                    .foregroundColor(.gray)
+                    .multilineTextAlignment(.center)
+                Spacer()
+            }.padding(.bottom, 10)
+            NavigationLink(destination: HomeView()) {
+                Text("시작하기")
+                    .padding(10)
+                    .background(Color("Orange"))
+                    .foregroundColor(.white)
+                    .cornerRadius(50)
+            }.padding(.top, 50)
+            Spacer()
+        }.background(Color("BaseGray")).ignoresSafeArea()
     }
 }
 
